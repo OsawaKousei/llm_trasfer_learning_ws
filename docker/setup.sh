@@ -9,3 +9,10 @@ git clone https://github.com/takaaki-inada/rinna-3.6b-hello-zundamon-ai.git
 cd rinna-3.6b-hello-zundamon-ai
 sudo rm -rf .git
 cd ~/
+
+# fix problem
+pip install six
+python -m pip install setuptools==69.5.1
+pip install git+https://github.com/huggingface/transformers
+pip install -U datasets
+pip install accelerate==0.30.0

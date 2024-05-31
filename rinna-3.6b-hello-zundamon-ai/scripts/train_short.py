@@ -7,8 +7,7 @@ import torch.nn as nn
 import transformers
 from datasets import Dataset, load_dataset
 from peft import (LoraConfig, TaskType, get_peft_model,
-                  get_peft_model_state_dict, prepare_model_for_int8_training,
-                  prepare_model_for_kbit_training)
+                  get_peft_model_state_dict, prepare_model_for_kbit_training)
 from transformers import (AutoModelForCausalLM, AutoTokenizer,
                           BitsAndBytesConfig)
 from transformers.trainer_callback import TrainerCallback
@@ -49,7 +48,6 @@ MODEL_NAME = "rinna/japanese-gpt-neox-3.6b-instruction-ppo"
 
 model = AutoModelForCausalLM.from_pretrained(
     MODEL_NAME,
-    load_in_4bit=True,
     device_map=device_map,
     quantization_config=BitsAndBytesConfig(
         load_in_4bit=True,
